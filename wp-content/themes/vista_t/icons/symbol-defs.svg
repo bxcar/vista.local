@@ -1,0 +1,23 @@
+<svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-cross" viewBox="0 0 32 32">
+<title>cross</title>
+<path d="M2.914 0.006l29.078 29.078-2.907 2.907-29.078-29.078 2.907-2.907z"></path>
+<path d="M0.006 29.084l29.078-29.078 2.907 2.907-29.078 29.078-2.907-2.907z"></path>
+</symbol>
+<symbol id="icon-menu" viewBox="0 0 40 32">
+<title>menu</title>
+<path d="M0 0h40v4h-40v-4z"></path>
+<path d="M0 14h40v4h-40v-4z"></path>
+<path d="M0 28h40v4h-40v-4z"></path>
+</symbol>
+<symbol id="icon-arrow-down" viewBox="0 0 32 32">
+<title>arrow-down</title>
+<path d="M26.923 21.557c0.436-0.451 0.436-1.162 0-1.613-0.451-0.436-1.178-0.436-1.613 0l-8.18 8.18v-26.994c0-0.629-0.5-1.129-1.129-1.129s-1.146 0.5-1.146 1.129v26.994l-8.164-8.18c-0.451-0.436-1.162-0.436-1.613 0-0.436 0.451-0.436 1.162 0 1.613l10.117 10.117c0.436 0.436 1.162 0.436 1.613 0l10.116-10.117z"></path>
+</symbol>
+<symbol id="icon-arrow-up" viewBox="0 0 32 32">
+<title>arrow-up</title>
+<path d="M5.075 10.444c-0.438 0.45-0.438 1.162 0 1.613 0.45 0.438 1.181 0.438 1.612 0l8.181-8.181v26.994c0 0.631 0.5 1.131 1.131 1.131s1.144-0.5 1.144-1.131v-26.994l8.169 8.181c0.45 0.438 1.163 0.438 1.613 0 0.438-0.45 0.438-1.162 0-1.613l-10.119-10.119c-0.438-0.438-1.162-0.438-1.613 0l-10.119 10.119z"></path>
+</symbol>
+</defs>
+</svg>
