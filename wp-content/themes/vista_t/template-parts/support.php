@@ -10,8 +10,8 @@ get_header(); ?>
             </div>
         </div>
         <div class="support-block">
-            <figure class="bg-image overlay-dark"><img src="img/support-block-bg-0.png"></figure>
-            <figure class="bg-graphic-bottom"><img src="img/support-block-bg-graphic.png"></figure>
+            <figure class="bg-image overlay-dark"><img src="<?= get_template_directory_uri(); ?>/img/support-block-bg-0.png"></figure>
+            <figure class="bg-graphic-bottom"><img src="<?= get_template_directory_uri(); ?>/img/support-block-bg-graphic.png"></figure>
             <div class="mainwrap support-wrap">
                 <?php the_field('text_2')?>
             </div>

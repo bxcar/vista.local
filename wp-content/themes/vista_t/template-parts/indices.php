@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: forex
+ * Template Name: indices
  */
 get_header(); ?>
     <div class="l-innerContent">
@@ -23,22 +23,12 @@ get_header(); ?>
                                 echo '<thead>';
 
                                 echo '<tr>';
-                                $table_header_count = count($table['header']);
-                                $i = 0;
+
                                 foreach ($table['header'] as $th) {
-                                    if($i == ($table_header_count-2)) {
-                                        echo '<th colspan="2">';
+                                        echo '<th>';
                                         echo $th['c'];
                                         echo '</th>';
-                                    } elseif($i == ($table_header_count-1)) {
-
-                                    } else {
-                                        echo '<th rowspan="2">';
-                                        echo $th['c'];
-                                        echo '</th>';
-                                    }
-
-                                $i++; }
+                                }
 
                                 echo '</tr>';
 
@@ -52,14 +42,14 @@ get_header(); ?>
                                 echo '<tr>';
                                 $i = 0;
                                 foreach ($tr as $td) {
-                                    if($i == 0) {
-                                        echo '<td class="semibold uppercase orange">';
+                                    if($i == 4) {
+                                        echo '<td class="table-cell-wide">';
                                     } else {
                                         echo '<td>';
                                     }
                                     echo $td['c'];
                                     echo '</td>';
-                                $i++; }
+                                    $i++; }
 
                                 echo '</tr>';
                             }
@@ -69,13 +59,6 @@ get_header(); ?>
                             echo '</table>';
                         } ?>
                     </div>
-                    <script>
-                        jQuery('.products-table thead').append(jQuery('.products-table tbody tr:first-child'));
-                        for(var i = 0; i < 5; i++) {
-                            jQuery('.products-table thead tr:last-child td:nth-child(1)').remove();
-                        }
-                    </script>
-                    <div class="products-table-footer"><span><?php the_field('text_under_table'); ?></span><span><?php the_field('number_under_table'); ?></span></div>
                 </div>
             </div>
         </div>
@@ -84,14 +67,14 @@ get_header(); ?>
             <figure class="bg-graphic-bottom"><img src="<?= get_template_directory_uri(); ?>/img/contact-form-graphic-bg.png"></figure>
             <div class="mainwrap">
                 <div class="center-inner-block">
-                    <h2 class="title-section white"><?php the_field('cf_title'); ?></h2>
+                    <h2 class="title-section white"><?php the_field('cf_title', 148); ?></h2>
                 </div>
                 <form class="contactUs-form form-general white">
-                    <input type="text" placeholder="<?php the_field('cf_field_1'); ?>">
-                    <input type="email" placeholder="<?php the_field('cf_field_2'); ?>">
-                    <input type="number" placeholder="<?php the_field('cf_field_3'); ?>">
-                    <textarea placeholder="<?php the_field('cf_field_4'); ?>"></textarea>
-                    <button class="btn-general filled white" type="submit"><?php the_field('cf_button_text'); ?></button>
+                    <input type="text" placeholder="<?php the_field('cf_field_1', 148); ?>">
+                    <input type="email" placeholder="<?php the_field('cf_field_2', 148); ?>">
+                    <input type="number" placeholder="<?php the_field('cf_field_3', 148); ?>">
+                    <textarea placeholder="<?php the_field('cf_field_4', 148); ?>"></textarea>
+                    <button class="btn-general filled white" type="submit"><?php the_field('cf_button_text', 148); ?></button>
                 </form>
             </div>
         </div>
