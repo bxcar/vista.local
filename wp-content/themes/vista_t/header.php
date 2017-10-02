@@ -188,51 +188,130 @@
             <div class="topBar-innermenu">
                 <div class="topBar-innermenu-close">
                     <svg class="icon icon-cross">
-                        <use xlink:href="icons/symbol-defs.svg#icon-cross"></use>
+                        <use xlink:href="<?= get_template_directory_uri(); ?>/icons/symbol-defs.svg#icon-cross"></use>
                     </svg>
                 </div>
                 <div class="topBar-innermenu-list">
                     <ul>
-                        <li><a href="#innermenu-b2b">B2B</a></li>
-                        <li><a href="#innermenu-b2c">B2C</a></li>
+                        <li><a href="#innermenu-b2b"><?php the_field('header_b2b_title', 'option'); ?></a></li>
+                        <li><a href="#innermenu-b2c"><?php the_field('header_b2с_title', 'option'); ?></a></li>
                     </ul>
                     <div id="innermenu-b2b">
-                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main" href="#">Login/Regisrer
-                                In B2C</a></div>
+                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main" href="<?php
+
+                            if (get_field('b2b_link_1', 'option')['postid']) {
+                                the_permalink(get_field('b2b_link_1', 'option')['postid']);
+                            } else {
+                                echo get_field('b2b_link_1', 'option')['url'];
+                            }
+
+                            ?>"
+                                                                      target="<?php echo get_field('b2b_link_1', 'option')['target']; ?>"><?php echo get_field('b2b_link_1', 'option')['title']; ?></a>
+                        </div>
                         <div class="topBar-menu-submenu-list-item spoiler-wrap">
-                            <div class="topBar-text topBar-menu-submenu-link-main spoiler-btn">About US</div>
-                            <div class="spoiler-content"><a class="topBar-menu-submenu-link-sub" href="licenses.html">Licenses
-                                    & Regulation</a><a class="topBar-menu-submenu-link-sub" href="contact-us.html">Contact
-                                    US</a></div>
+                            <div class="topBar-text topBar-menu-submenu-link-main spoiler-btn"><?php the_field('subsection_1_title', 'option') ?></div>
+                            <div class="spoiler-content">
+                                <?php
+                                if (get_field('links_for_sebsection_1', 'option')) {
+                                    foreach (get_field('links_for_sebsection_1', 'option') as $item) { ?>
+                                        <a class="topBar-menu-submenu-link-sub" href="<?php
+
+                                        if ($item['link']['postid']) {
+                                            the_permalink($item['link']['postid']);
+                                        } else {
+                                            echo $item['link']['url'];
+                                        }
+
+                                        ?>"
+                                           target="<?php echo $item['link']['target']; ?>"><?php echo $item['link']['title']; ?></a>
+                                    <?php }
+                                } ?>
+                            </div>
                         </div>
                         <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main"
-                                                                      href="faq.html">F.A.G</a></div>
+                                                                      href="<?php
+
+                                                                      if (get_field('b2b_link_2', 'option')['postid']) {
+                                                                          the_permalink(get_field('b2b_link_2', 'option')['postid']);
+                                                                      } else {
+                                                                          echo get_field('b2b_link_2', 'option')['url'];
+                                                                      }
+
+                                                                      ?>"
+                                                                      target="<?php echo get_field('b2b_link_2', 'option')['target']; ?>"><?php echo get_field('b2b_link_2', 'option')['title']; ?></a>
+                        </div>
                         <div class="topBar-menu-submenu-list-item spoiler-wrap">
-                            <div class="topBar-text topBar-menu-submenu-link-main spoiler-btn">Trading</div>
-                            <div class="spoiler-content"><a class="topBar-menu-submenu-link-sub nowrap"
-                                                            href="platforms.html">Trading platforms</a>
-                                <div class="topBar-text topBar-menu-submenu-link-sub">Products</div>
+                            <div class="topBar-text topBar-menu-submenu-link-main spoiler-btn"><?php the_field('subsection_2_title', 'option') ?></div>
+                            <div class="spoiler-content"><?php
+                                if (get_field('links_for_sebsection_2_1', 'option')) {
+                                    foreach (get_field('links_for_sebsection_2_1', 'option') as $item) { ?>
+                                        <a class="topBar-menu-submenu-link-sub nowrap" href="<?php
+
+                                        if ($item['link']['postid']) {
+                                            the_permalink($item['link']['postid']);
+                                        } else {
+                                            echo $item['link']['url'];
+                                        }
+
+                                        ?>"
+                                           target="<?php echo $item['link']['target']; ?>"><?php echo $item['link']['title']; ?></a>
+                                    <?php }
+                                } ?>
+                                <div class="topBar-text topBar-menu-submenu-link-sub"><?php the_field('subsection_2_subsection_title', 'option') ?></div>
                                 <ul class="no-bullet">
-                                    <li><a class="topBar-menu-submenu-link-sub" href="forex.html">Forex</a></li>
-                                    <li><a class="topBar-menu-submenu-link-sub" href="indices.html">Indices</a></li>
-                                    <li><a class="topBar-menu-submenu-link-sub" href="commodities.html">Commodities</a>
-                                    </li>
+                                    <?php
+                                    if (get_field('links_for_sebsection_2_subsection', 'option')) {
+                                        foreach (get_field('links_for_sebsection_2_subsection', 'option') as $item) { ?>
+                                            <li><a class="topBar-menu-submenu-link-sub" href="<?php
+
+                                                if ($item['link']['postid']) {
+                                                    the_permalink($item['link']['postid']);
+                                                } else {
+                                                    echo $item['link']['url'];
+                                                }
+
+                                                ?>"
+                                                   target="<?php echo $item['link']['target']; ?>"><?php echo $item['link']['title']; ?></a>
+                                            </li>
+                                        <?php }
+                                    } ?>
                                 </ul>
-                                <a class="topBar-menu-submenu-link-sub" href="investments.html">Investments</a><a
-                                        class="topBar-menu-submenu-link-sub" href="accounts.html">Accounts</a>
+                                <?php
+                                if (get_field('links_for_sebsection_2_2', 'option')) {
+                                    foreach (get_field('links_for_sebsection_2_2', 'option') as $item) { ?>
+                                        <a class="topBar-menu-submenu-link-sub" href="<?php
+
+                                        if ($item['link']['postid']) {
+                                            the_permalink($item['link']['postid']);
+                                        } else {
+                                            echo $item['link']['url'];
+                                        }
+
+                                        ?>"
+                                           target="<?php echo $item['link']['target']; ?>"><?php echo $item['link']['title']; ?></a>
+                                    <?php }
+                                } ?>
                             </div>
                         </div>
                     </div>
                     <div id="innermenu-b2c">
-                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main"
-                                                                      href="index.html">Home</a></div>
-                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main"
-                                                                      href="liquidity.html">Liqudity</a></div>
-                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main"
-                                                                      href="support.html">Back office support,
-                                compliance & marketing management</a></div>
-                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main"
-                                                                      href="contact-us.html">Contact US</a></div>
+                        <?php
+                        if (get_field('header_b2с_links', 'option')) {
+                            foreach (get_field('header_b2с_links', 'option') as $item) { ?>
+                                <div class="topBar-menu-submenu-list-item"><a
+                                            class="topBar-menu-submenu-link-main" href="<?php
+
+                                    if ($item['link']['postid']) {
+                                        the_permalink($item['link']['postid']);
+                                    } else {
+                                        echo $item['link']['url'];
+                                    }
+
+                                    ?>"
+                                            target="<?php echo $item['link']['target']; ?>"><?php echo $item['link']['title']; ?></a>
+                                </div>
+                            <?php }
+                        } ?>
                     </div>
                 </div>
             </div>
