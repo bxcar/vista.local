@@ -25,6 +25,7 @@
         <link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/css/main.css">
         <script src="<?= get_template_directory_uri(); ?>/js/libs.min.js"></script>
         <script src="<?= get_template_directory_uri(); ?>/js/script.js"></script>
+        <?php include_once "js/form-ajax.php" ?>
     </head>
 <body>
 <div class="globalwrap">
@@ -497,13 +498,14 @@
             <div class="center-inner-block">
                 <h2 class="title-section white"><?php the_field('contact_form_title'); ?></h2>
             </div>
-            <form class="contactUs-form form-general white">
-                <input type="text" placeholder="<?php the_field('contact_form_field_1'); ?>" required>
-                <input type="email" placeholder="<?php the_field('contact_form_field_2'); ?>" required>
-                <input type="number" placeholder="<?php the_field('contact_form_field_3'); ?>">
-                <input type="text" placeholder="<?php the_field('contact_form_field_4'); ?>">
-                <textarea placeholder="<?php the_field('contact_form_field_5'); ?>"></textarea>
-                <button class="btn-general filled white" type="submit"><?php the_field('contact_form_button_text'); ?></button>
+            <form class="contactUs-form form-general white" id="static-form" method="post">
+                <input name="required-field" type="hidden" value="email">
+                <input name="name" type="text" placeholder="<?php the_field('contact_form_field_1'); ?>" required>
+                <input name="email" type="email" placeholder="<?php the_field('contact_form_field_2'); ?>" required>
+                <input name="phone" type="number" placeholder="<?php the_field('contact_form_field_3'); ?>">
+                <input name="subject" type="text" placeholder="<?php the_field('contact_form_field_4'); ?>">
+                <textarea name="text" placeholder="<?php the_field('contact_form_field_5'); ?>"></textarea>
+                <button id="submit-static-form" class="btn-general filled white" type="submit"><?php the_field('contact_form_button_text'); ?></button>
             </form>
             <div class="contactUs-warning">
                 <p class="contactUs-warning-title semibold uppercase white"><span><?php the_field('contact_form_bottom_section_title'); ?></span></p>

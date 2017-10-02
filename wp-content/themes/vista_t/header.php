@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/css/main.css">
     <script src="<?= get_template_directory_uri(); ?>/js/libs.min.js"></script>
     <script src="<?= get_template_directory_uri(); ?>/js/script.js"></script>
+    <?php include_once "js/form-ajax.php" ?>
 </head>
 <body>
 <div class="globalwrap">

@@ -69,12 +69,13 @@ get_header(); ?>
                 <div class="center-inner-block">
                     <h2 class="title-section white"><?php the_field('cf_title', 148); ?></h2>
                 </div>
-                <form class="contactUs-form form-general white">
-                    <input type="text" placeholder="<?php the_field('cf_field_1', 148); ?>">
-                    <input type="email" placeholder="<?php the_field('cf_field_2', 148); ?>">
-                    <input type="number" placeholder="<?php the_field('cf_field_3', 148); ?>">
-                    <textarea placeholder="<?php the_field('cf_field_4', 148); ?>"></textarea>
-                    <button class="btn-general filled white" type="submit"><?php the_field('cf_button_text', 148); ?></button>
+                <form class="contactUs-form form-general white" id="static-form" method="post">
+                    <input name="required-field" type="hidden" value="email">
+                    <input name="name" type="text" placeholder="<?php the_field('cf_field_1', 148); ?>">
+                    <input name="email" type="email" placeholder="<?php the_field('cf_field_2', 148); ?>" required>
+                    <input name="phone" type="number" placeholder="<?php the_field('cf_field_3', 148); ?>">
+                    <textarea name="text" placeholder="<?php the_field('cf_field_4', 148); ?>"></textarea>
+                    <button id="submit-static-form" class="btn-general filled white" type="submit"><?php the_field('cf_button_text', 148); ?></button>
                 </form>
             </div>
         </div>

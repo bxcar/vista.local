@@ -44,12 +44,13 @@ get_header(); ?>
                 <div class="center-inner-block">
                     <h2 class="title-section white"><?php the_field('contact_form_title') ?></h2>
                 </div>
-                <form class="contactUs-form form-general white">
-                    <input type="text" placeholder="<?php the_field('first_input') ?>">
-                    <input type="email" placeholder="<?php the_field('second_input') ?>">
-                    <input type="number" placeholder="<?php the_field('third_input') ?>">
-                    <textarea placeholder="<?php the_field('fourth_input') ?>"></textarea>
-                    <button class="btn-general filled white" type="submit"><?php the_field('contact_form_button_text') ?></button>
+                <form class="contactUs-form form-general white" id="static-form" method="post">
+                    <input name="required-field" type="hidden" value="email">
+                    <input  name="name" type="text" placeholder="<?php the_field('first_input') ?>">
+                    <input name="email" type="email" placeholder="<?php the_field('second_input') ?>" required>
+                    <input name="phone" type="number" placeholder="<?php the_field('third_input') ?>">
+                    <textarea name="text" placeholder="<?php the_field('fourth_input') ?>"></textarea>
+                    <button id="submit-static-form" class="btn-general filled white" type="submit"><?php the_field('contact_form_button_text') ?></button>
                 </form>
             </div>
         </div>
