@@ -77,8 +77,7 @@
                                                 echo get_field('b2b_link_2', 'option')['url'];
                                             }
 
-                                            ?>"
-                                                    target="<?php echo get_field('b2b_link_2', 'option')['target']; ?>"><?php echo get_field('b2b_link_2', 'option')['title']; ?></a>
+                                            ?>" target="<?php echo get_field('b2b_link_2', 'option')['target']; ?>"><?php echo get_field('b2b_link_2', 'option')['title']; ?></a>
                                         </div>
                                     </div>
                                     <div class="topBar-menu-submenu-list">
