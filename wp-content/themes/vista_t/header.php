@@ -29,48 +29,156 @@
     <div class="l-header">
         <div class="topBar-wrap">
             <div class="topBar-innerwrap">
-                <div class="topBar-left"><a class="topBar-logo" href="index.html"><img src="<?= get_template_directory_uri(); ?>/img/logo.svg"></a></div>
+                <div class="topBar-left"><a class="topBar-logo" href="<?= home_url(); ?>"><img
+                                src="<?php the_field('header_logo_img', 'option'); ?>"></a></div>
                 <div class="topBar-center">
                     <ul class="topBar-menu show-for-medium">
-                        <li><span class="topBar-menu-text topBar-menu-btn">B2B</span>
+                        <li>
+                            <span class="topBar-menu-text topBar-menu-btn"><?php the_field('header_b2b_title', 'option'); ?></span>
                             <div class="topBar-menu-submenu-wrap is-hidden">
                                 <div class="topBar-menu-submenu">
                                     <div class="topBar-menu-submenu-list">
-                                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main nowrap" href="#">Login/Regisrer In B2C</a></div>
-                                        <div class="topBar-menu-submenu-list-item">
-                                            <div class="topBar-text topBar-menu-submenu-link-main">About US</div><a class="topBar-menu-submenu-link-sub" href="licenses.html">Licenses & Regulation</a><a class="topBar-menu-submenu-link-sub" href="contact-us.html">Contact US</a>
+                                        <div class="topBar-menu-submenu-list-item"><a
+                                                    class="topBar-menu-submenu-link-main nowrap" href="<?php
+
+                                            if (get_field('b2b_link_1', 'option')['postid']) {
+                                                the_permalink(get_field('b2b_link_1', 'option')['postid']);
+                                            } else {
+                                                echo get_field('b2b_link_1', 'option')['url'];
+                                            }
+
+                                            ?>"
+                                                    target="<?php echo get_field('b2b_link_1', 'option')['target']; ?>"><?php echo get_field('b2b_link_1', 'option')['title']; ?></a>
                                         </div>
-                                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main" href="faq.html">F.A.G</a></div>
+                                        <div class="topBar-menu-submenu-list-item">
+                                            <div class="topBar-text topBar-menu-submenu-link-main"><?php the_field('subsection_1_title', 'option') ?></div>
+                                            <?php
+                                            if (get_field('links_for_sebsection_1', 'option')) {
+                                                foreach (get_field('links_for_sebsection_1', 'option') as $item) { ?>
+                                                    <a class="topBar-menu-submenu-link-sub" href="<?php
+
+                                                    if ($item['link']['postid']) {
+                                                        the_permalink($item['link']['postid']);
+                                                    } else {
+                                                        echo $item['link']['url'];
+                                                    }
+
+                                                    ?>"
+                                                       target="<?php echo $item['link']['target']; ?>"><?php echo $item['link']['title']; ?></a>
+                                                <?php }
+                                            } ?>
+                                        </div>
+                                        <div class="topBar-menu-submenu-list-item"><a
+                                                    class="topBar-menu-submenu-link-main" href="<?php
+
+                                            if (get_field('b2b_link_2', 'option')['postid']) {
+                                                the_permalink(get_field('b2b_link_2', 'option')['postid']);
+                                            } else {
+                                                echo get_field('b2b_link_2', 'option')['url'];
+                                            }
+
+                                            ?>"
+                                                    target="<?php echo get_field('b2b_link_2', 'option')['target']; ?>"><?php echo get_field('b2b_link_2', 'option')['title']; ?></a>
+                                        </div>
                                     </div>
                                     <div class="topBar-menu-submenu-list">
                                         <div class="topBar-menu-submenu-list-item">
-                                            <div class="topBar-text topBar-menu-submenu-link-main">Trading</div><a class="topBar-menu-submenu-link-sub nowrap" href="platforms.html">Trading platforms</a>
-                                            <div class="topBar-text topBar-menu-submenu-link-sub">Products</div>
+                                            <div class="topBar-text topBar-menu-submenu-link-main"><?php the_field('subsection_2_title', 'option') ?></div>
+                                            <?php
+                                            if (get_field('links_for_sebsection_2_1', 'option')) {
+                                                foreach (get_field('links_for_sebsection_2_1', 'option') as $item) { ?>
+                                                    <a class="topBar-menu-submenu-link-sub nowrap" href="<?php
+
+                                                    if ($item['link']['postid']) {
+                                                        the_permalink($item['link']['postid']);
+                                                    } else {
+                                                        echo $item['link']['url'];
+                                                    }
+
+                                                    ?>"
+                                                       target="<?php echo $item['link']['target']; ?>"><?php echo $item['link']['title']; ?></a>
+                                                <?php }
+                                            } ?>
+                                            <div class="topBar-text topBar-menu-submenu-link-sub"><?php the_field('subsection_2_subsection_title', 'option') ?></div>
                                             <ul>
-                                                <li><a class="topBar-menu-submenu-link-sub" href="forex.html">Forex</a></li>
-                                                <li><a class="topBar-menu-submenu-link-sub" href="indices.html">Indices</a></li>
-                                                <li><a class="topBar-menu-submenu-link-sub" href="commodities.html">Commodities</a></li>
-                                            </ul><a class="topBar-menu-submenu-link-sub" href="investments.html">Investments</a><a class="topBar-menu-submenu-link-sub" href="accounts.html">Accounts</a>
+                                                <?php
+                                                if (get_field('links_for_sebsection_2_subsection', 'option')) {
+                                                    foreach (get_field('links_for_sebsection_2_subsection', 'option') as $item) { ?>
+                                                        <li><a class="topBar-menu-submenu-link-sub" href="<?php
+
+                                                            if ($item['link']['postid']) {
+                                                                the_permalink($item['link']['postid']);
+                                                            } else {
+                                                                echo $item['link']['url'];
+                                                            }
+
+                                                            ?>"
+                                                               target="<?php echo $item['link']['target']; ?>"><?php echo $item['link']['title']; ?></a>
+                                                        </li>
+                                                    <?php }
+                                                } ?>
+                                            </ul>
+                                            <?php
+                                            if (get_field('links_for_sebsection_2_2', 'option')) {
+                                                foreach (get_field('links_for_sebsection_2_2', 'option') as $item) { ?>
+                                                    <a class="topBar-menu-submenu-link-sub" href="<?php
+
+                                                    if ($item['link']['postid']) {
+                                                        the_permalink($item['link']['postid']);
+                                                    } else {
+                                                        echo $item['link']['url'];
+                                                    }
+
+                                                    ?>"
+                                                       target="<?php echo $item['link']['target']; ?>"><?php echo $item['link']['title']; ?></a>
+                                                <?php }
+                                            } ?>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </li>
-                        <li><span class="topBar-menu-text topBar-menu-btn">B2C</span>
+                        <li>
+                            <span class="topBar-menu-text topBar-menu-btn"><?php the_field('header_b2с_title', 'option'); ?></span>
                             <div class="topBar-menu-submenu-wrap is-hidden">
                                 <div class="topBar-menu-submenu">
                                     <div class="topBar-menu-submenu-list no-siblings">
-                                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main" href="index.html">Home</a></div>
-                                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main" href="liquidity.html">Liqudity</a></div>
-                                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main" href="support.html">Back office support, compliance & marketing management</a></div>
-                                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main" href="contact-us.html">Contact US</a></div>
+                                        <?php
+                                        if (get_field('header_b2с_links', 'option')) {
+                                            foreach (get_field('header_b2с_links', 'option') as $item) { ?>
+                                                <div class="topBar-menu-submenu-list-item"><a
+                                                            class="topBar-menu-submenu-link-main" href="<?php
+
+                                                    if ($item['link']['postid']) {
+                                                        the_permalink($item['link']['postid']);
+                                                    } else {
+                                                        echo $item['link']['url'];
+                                                    }
+
+                                                    ?>"
+                                                            target="<?php echo $item['link']['target']; ?>"><?php echo $item['link']['title']; ?></a>
+                                                </div>
+                                            <?php }
+                                        } ?>
                                     </div>
                                 </div>
                             </div>
                         </li>
                     </ul>
                 </div>
-                <div class="topBar-right"><a class="topBar-inner-item topBar-text topBar-phone show-for-medium" href="tel:+35725028028">+ 357 25 028028</a><a class="topBar-inner-item topBar-button show-for-medium" href="contact-us.html">Contacts</a><span class="topBar-inner-item topBar-icon hide-for-medium topBar-innermenu-btn">
+                <div class="topBar-right"><a class="topBar-inner-item topBar-text topBar-phone show-for-medium"
+                                             href="tel:<?php the_field('header_phone_format', 'option'); ?>"><?php the_field('header_phone', 'option'); ?></a><a
+                            class="topBar-inner-item topBar-button show-for-medium" href="<?php
+
+                    if (get_field('header_button_right_top_corner', 'option')['postid']) {
+                        the_permalink(get_field('header_button_right_top_corner', 'option')['postid']);
+                    } else {
+                        echo get_field('header_button_right_top_corner', 'option')['url'];
+                    }
+
+                    ?>"
+                            target="<?php echo get_field('header_button_right_top_corner', 'option')['target']; ?>"><?php echo get_field('header_button_right_top_corner', 'option')['title']; ?></a><span
+                            class="topBar-inner-item topBar-icon hide-for-medium topBar-innermenu-btn">
                 <svg class="icon icon-menu">
                   <use xlink:href="<?= get_template_directory_uri(); ?>/icons/symbol-defs.svg#icon-menu"></use>
                 </svg></span></div>
@@ -89,35 +197,49 @@
                         <li><a href="#innermenu-b2c">B2C</a></li>
                     </ul>
                     <div id="innermenu-b2b">
-                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main" href="#">Login/Regisrer In B2C</a></div>
+                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main" href="#">Login/Regisrer
+                                In B2C</a></div>
                         <div class="topBar-menu-submenu-list-item spoiler-wrap">
                             <div class="topBar-text topBar-menu-submenu-link-main spoiler-btn">About US</div>
-                            <div class="spoiler-content"><a class="topBar-menu-submenu-link-sub" href="licenses.html">Licenses & Regulation</a><a class="topBar-menu-submenu-link-sub" href="contact-us.html">Contact US</a></div>
+                            <div class="spoiler-content"><a class="topBar-menu-submenu-link-sub" href="licenses.html">Licenses
+                                    & Regulation</a><a class="topBar-menu-submenu-link-sub" href="contact-us.html">Contact
+                                    US</a></div>
                         </div>
-                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main" href="faq.html">F.A.G</a></div>
+                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main"
+                                                                      href="faq.html">F.A.G</a></div>
                         <div class="topBar-menu-submenu-list-item spoiler-wrap">
                             <div class="topBar-text topBar-menu-submenu-link-main spoiler-btn">Trading</div>
-                            <div class="spoiler-content"><a class="topBar-menu-submenu-link-sub nowrap" href="platforms.html">Trading platforms</a>
+                            <div class="spoiler-content"><a class="topBar-menu-submenu-link-sub nowrap"
+                                                            href="platforms.html">Trading platforms</a>
                                 <div class="topBar-text topBar-menu-submenu-link-sub">Products</div>
                                 <ul class="no-bullet">
                                     <li><a class="topBar-menu-submenu-link-sub" href="forex.html">Forex</a></li>
                                     <li><a class="topBar-menu-submenu-link-sub" href="indices.html">Indices</a></li>
-                                    <li><a class="topBar-menu-submenu-link-sub" href="commodities.html">Commodities</a></li>
-                                </ul><a class="topBar-menu-submenu-link-sub" href="investments.html">Investments</a><a class="topBar-menu-submenu-link-sub" href="accounts.html">Accounts</a>
+                                    <li><a class="topBar-menu-submenu-link-sub" href="commodities.html">Commodities</a>
+                                    </li>
+                                </ul>
+                                <a class="topBar-menu-submenu-link-sub" href="investments.html">Investments</a><a
+                                        class="topBar-menu-submenu-link-sub" href="accounts.html">Accounts</a>
                             </div>
                         </div>
                     </div>
                     <div id="innermenu-b2c">
-                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main" href="index.html">Home</a></div>
-                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main" href="liquidity.html">Liqudity</a></div>
-                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main" href="support.html">Back office support, compliance & marketing management</a></div>
-                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main" href="contact-us.html">Contact US</a></div>
+                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main"
+                                                                      href="index.html">Home</a></div>
+                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main"
+                                                                      href="liquidity.html">Liqudity</a></div>
+                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main"
+                                                                      href="support.html">Back office support,
+                                compliance & marketing management</a></div>
+                        <div class="topBar-menu-submenu-list-item"><a class="topBar-menu-submenu-link-main"
+                                                                      href="contact-us.html">Contact US</a></div>
                     </div>
                 </div>
             </div>
         </div>
-        <figure class="bg-image overlay-dark"><img src="<?= get_template_directory_uri(); ?>/img/inner-title-bg.png"></figure>
-        <figure class="bg-graphic-bottom"><img src="<?= get_template_directory_uri(); ?>/img/inner-title-graphic.png"></figure>
+        <figure class="bg-image overlay-dark"><img src="<?php the_field('header_bg_img', 'option'); ?>"></figure>
+        <figure class="bg-graphic-bottom"><img src="<?= get_template_directory_uri(); ?>/img/inner-title-graphic.png">
+        </figure>
         <div class="header-title-inner center-inner-block">
             <div>
                 <h1 class="title-page white text-center"><?php the_title(); ?></h1>
